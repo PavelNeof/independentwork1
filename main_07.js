@@ -70,8 +70,8 @@ const setUpperCase = (string) => {
 // isIncludes("Incubator", "table") => false
 // every()
 
-const isIncludes = (first, second) => {
-    let newFirst = first.toUpperCase().split('')
+const isIncludes = (str_1, str_2) => {
+   /* let newFirst = first.toUpperCase().split('')
     let newSecond = second.toUpperCase().split('')
     let arr = [];
     for (let i = 0; i < second.length; i++) {
@@ -81,6 +81,19 @@ const isIncludes = (first, second) => {
             arr.push(newFirst.includes(newSecond[i]))
     }
     return !arr.includes(false);
+*/
+    let s1 = str_1.toLowerCase().split('')
+    let s2 = str_2.toLowerCase().split('')
+
+    while (s2.length){
+        if (s1.includes(s2[0])) {
+            s1.splice(s1.indexOf(s2[0]), 1)
+            s2.splice(0, 1)
+        } else {
+            return false
+        }
+    }
+    return true
 
 }
 
