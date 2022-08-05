@@ -1,4 +1,3 @@
-
 const students = [
     {
         name: "Bob",
@@ -165,16 +164,22 @@ console.log(sum)
 const addFriends = (a) => {
     a = students
     let newArr = [];
-    for (let i = 0; i < a.length; i++) {
-        //фильтрую массив студентов, убираю объект с текущем именем
-        const b = a.filter((el) => el.name != a[i].name);
-        //делаю из это массива массив имён
-        const n = b.map((el) => el.name);
-        // добавляю этот массив свойству friends, как его значение
-        const arr = a.map((el) => ({...el, friends: n}));
-        newArr.push(arr)
-    }
-
-    return (newArr)
+    /* for (let i = 0; i < a.length; i++) {
+         //фильтрую массив студентов, убираю объект с текущем именем
+         const b = a.filter((el) => el.name != a[i].name);
+         //делаю из это массива массив имён
+         const n = b.map((el) => el.name);
+         // добавляю этот массив свойству friends, как его значение
+         const arr = a.map((el) => ({...el, friends: n}));
+         newArr.push(arr)
+     }*/
+    const names = students.map(el => el.name)
+    return students.map(st => ({...st, friends: names.filter(name => name !== st.name)}))
 }
 console.log(addFriends(students));
+
+
+
+console.log('----------------------------------------------------------------------------------------------------------')
+
+
